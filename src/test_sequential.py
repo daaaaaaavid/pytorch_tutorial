@@ -4,9 +4,9 @@ from torch.nn import Conv2d, MaxPool2d, Flatten, Linear, Sequential
 from torch.utils.tensorboard import SummaryWriter
 
 
-class module(nn.Module):
+class model(nn.Module):
     def __init__(self):
-        super(module,self).__init__()
+        super(model,self).__init__()
         self.model1 = Sequential(
             Conv2d(3,32,5,padding=2),
             MaxPool2d(2),
@@ -22,7 +22,7 @@ class module(nn.Module):
         output = self.model1(x)
         return output
 
-M = module()
+M = model()
 input = torch.ones((64,3,32,32))
 print(M(input).shape)
 writer = SummaryWriter("../logs")
